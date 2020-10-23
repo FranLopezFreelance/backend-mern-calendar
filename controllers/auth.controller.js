@@ -1,13 +1,30 @@
-const register = (req, res) => {
-  res.json({ message: 'Register' });
+const { response } = require('express');
+
+const register = (req, res = response) => {
+
+  const {name, email, password} = req.body;
+
+  res.status(201).json({
+    data: req.body,
+    message: 'Registro realizado correctamente' 
+  });
 };
 
 const login = (req, res) => {
-  res.json({ message: 'Login' });
+
+  const {email, password} = req.body;
+
+  res.status(202).json({
+    data: req.body,
+    message: 'Ingreso correcto' 
+  });
 };
 
 const refToken = (req, res) => {
-  res.json({ message: 'Refresh token' });
+  res.status(200).json({ 
+    data: '',
+    message: 'Token has been refreshed' 
+  });
 };
 
 module.exports = {register, login, refToken};

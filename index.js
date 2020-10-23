@@ -6,7 +6,9 @@ const app = express();
 
 //Middlewares
 app.use(express.static('public'));
+app.use(express.json());
 app.use('/api/auth', require('./routes/auth.routes'));
+
 
 //Run server
 app.listen(process.env.PORT, () => {
